@@ -78,7 +78,7 @@ const ChatPage = ({ image, name }) => {
 
       <div
         style={{ background: "#f8f9fb" }}
-        className="w-[400px] h-[550px] rounded-[20px] justify-between flex flex-col p-5 "
+        className="w-full  h-[550px] rounded-[20px] justify-between flex flex-col p-5 "
       >
         <img
           src={image}

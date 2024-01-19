@@ -76,19 +76,19 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <>
       {foundMember?.name ? (
         <ChatPage image={foundMember?.img} name={foundMember?.name} />
       ) : (
         <form onSubmit={handleFormSubmit}>
-          <div className="flex flex-col px-2 items-center w-[300px] h-[300px] rounded-[20px] bg-white">
+          <div className="flex flex-col px-2 items-center w-full h-[300px] gap-20 rounded-[20px] bg-white">
             <h1
               style={{ color: "#28a5ff" }}
               className="font-bold text-[20px] uppercase"
             >
               Register
             </h1>
-            <div className="flex flex-col justify-center items-center h-screen gap-3">
+            <div className="flex flex-col  items-center h-screen gap-3">
               <label className="font-bold text-[15px] leading-3">
                 Matric No:
               </label>
@@ -135,7 +135,7 @@ const Register = () => {
           </div>
         </form>
       )}
-    </div>
+    </>
   );
 };
 
