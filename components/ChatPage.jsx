@@ -6,13 +6,27 @@ import ChatOutput from "@/components/ChatOutput";
 
 const ChatPage = ({ image, name }) => {
   const [messages, setMessages] = useState(() => {
-    const storedMessages = localStorage.getItem("chatMessages");
-    return storedMessages ? JSON.parse(storedMessages) : [];
+    try {
+      if (typeof window !== "undefined" && window.localStorage) {
+        const storedMessages = localStorage.getItem("chatMessages");
+        return storedMessages ? JSON.parse(storedMessages) : [];
+      }
+    } catch (error) {
+      console.error("Error accessing localStorage:", error);
+    }
+    return [];
   });
+
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    localStorage.setItem("chatMessages", JSON.stringify(messages));
+    try {
+      if (typeof window !== "undefined" && window.localStorage) {
+        localStorage.setItem("chatMessages", JSON.stringify(messages));
+      }
+    } catch (error) {
+      console.error("Error accessing localStorage:", error);
+    }
   }, [messages]);
 
   const sendMessage = async () => {

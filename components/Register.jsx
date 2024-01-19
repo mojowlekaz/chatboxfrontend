@@ -5,9 +5,12 @@ import ChatPage from "./ChatPage";
 const Register = () => {
   const [matricNo, setMatricNo] = useState("");
   const [foundMember, setFoundMember] = useState("");
-  const [image, setImage] = useState(
-    () => localStorage.getItem("uploadedImage") || null
-  );
+  const [image, setImage] = useState(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("uploadedImage") || null;
+    }
+    return null;
+  });
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
