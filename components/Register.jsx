@@ -40,7 +40,7 @@ const Register = () => {
       {
         matricNo: 222839,
         name: "Kweku",
-        img: "/Kweku.png",
+        img: "/kweku.png",
       },
       {
         matricNo: 222824,
